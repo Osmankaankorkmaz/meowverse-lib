@@ -1,6 +1,6 @@
 {
   "name": "meowverse",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A lightweight JavaScript library to fetch random cat images from a remote API.",
   "main": "index.js",
   "scripts": {
