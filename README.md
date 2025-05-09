@@ -106,7 +106,6 @@ console.log(happyCat); // Prints a happy cat image URL
 Returns a cat image URL based on both the color and mood provided.
 
 * **Parameters**:
-
   * `color` (string) - The color of the cat.
   * `mood` (string) - The mood of the cat.
 * **Returns**: A URL of the cat image or a message if no match is found.
@@ -151,17 +150,53 @@ import {
   colorfulMoodCats
 } from "meowverse";
 
+// HTML'de img elementlerini almak
+const randomCatImg = document.getElementById("random-cat");
+const blackCatImg = document.getElementById("black-cat");
+const happyCatImg = document.getElementById("happy-cat");
+const whiteSleepyCatImg = document.getElementById("white-sleepy-cat");
+
 const showCats = async () => {
-  console.log("Random cat:", await purrfectlyRandomCat());
-  console.log("Black cat:", await rainbowCatFinder("black"));
-  console.log("Happy cat:", await moodyCatPicker("happy"));
-  console.log("White + sleepy cat:", await colorfulMoodCats("white", "sleepy"));
+  // Kedi resimlerini API'den alıp img elementlerine yerleştirme
+  randomCatImg.src = await purrfectlyRandomCat();
+  blackCatImg.src = await rainbowCatFinder("black");
+  happyCatImg.src = await moodyCatPicker("happy");
+  whiteSleepyCatImg.src = await colorfulMoodCats("white", "sleepy");
 };
 
+// Kedi resimlerini göstermek için fonksiyonu çalıştır
 showCats();
 ```
 
-This will fetch random, colored, and mood-based cat images from the API and log them to the console.
+### HTML part:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meowverse Cats</title>
+</head>
+<body>
+  <h1>Random Cat</h1>
+  <img id="random-cat" alt="Random Cat" width="300" />
+  
+  <h1>Black Cat</h1>
+  <img id="black-cat" alt="Black Cat" width="300" />
+  
+  <h1>Happy Cat</h1>
+  <img id="happy-cat" alt="Happy Cat" width="300" />
+  
+  <h1>White Sleepy Cat</h1>
+  <img id="white-sleepy-cat" alt="White Sleepy Cat" width="300" />
+
+  <script src="path/to/your/script.js"></script>
+</body>
+</html>
+```
+
+This example shows how to use **Meowverse** to fetch random, colored, and mood-based cat images and display them on a webpage.
 
 ---
 
